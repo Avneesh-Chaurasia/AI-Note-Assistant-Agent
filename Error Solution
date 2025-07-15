@@ -1,0 +1,29 @@
+Problem 1:AttributeError: module 'google.generativeai' has no attribute 'GenerativeModel' 
+
+Solution:
+Step1:(optional) start fresh
+rm -rf ~/.cache/pip                      # clear pip wheels
+deactivate  2>/dev/null                  # leave any active venv
+
+Delete existing virtual environment (if broken)
+rm -rf gemini-env
+
+Step2:Create a clean Python 3.10+ environment
+python3.10 -m venv gemini-env
+source gemini-env/bin/activate
+
+Step3. Reinstall Dependencies
+Once activated, run:
+pip install --upgrade pip
+pip install -r requirements.txt
+
+Step4. Run the App
+
+Problem 2:Google API key not found or invalid. Please set it in your environment or Streamlit secrets.
+
+Solution:
+mkdir -p .streamlit
+nano .streamlit/secrets.toml
+Below will be API key which is created.Copy the link & paste in Editor in below given format.
+GOOGLE_API_KEY = "your-real-gemini-api-key-here" (Command to paste into GNU page: ctr+shift+V, save the command:ctr+O, Exit the GNU:ctr+X) 
+Command to run file: streamlit run app2.py
